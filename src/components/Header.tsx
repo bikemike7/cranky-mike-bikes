@@ -34,12 +34,6 @@ const Header = () => {
               </Link>
             ))}
             <a href={SUBMIT_FORM_URL} target="_blank" rel="noopener noreferrer" className="font-heading text-lg tracking-wide bg-primary text-primary-foreground px-3 hover:bg-foreground hover:text-background transition-colors">SUBMIT</a>
-            <Link
-              to="/admin"
-              className="font-mono text-xs text-muted-foreground hover:underline transition-colors"
-            >
-              MOD
-            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -68,13 +62,6 @@ const Header = () => {
               </Link>
             ))}
             <a href={SUBMIT_FORM_URL} target="_blank" rel="noopener noreferrer" className="font-heading text-2xl tracking-wide py-2">SUBMIT</a>
-            <Link
-              to="/admin"
-              onClick={() => setMenuOpen(false)}
-              className="font-mono text-sm text-muted-foreground hover:underline transition-colors py-2"
-            >
-              MOD PANEL
-            </Link>
           </nav>
         )}
       </div>

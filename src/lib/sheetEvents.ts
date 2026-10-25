@@ -1,5 +1,5 @@
 export const SHEET_CSV_URL =
-  'https://docs.google.com/spreadsheets/d/1mxP2-lY1-fhWoHr_LOBLFw4OXnEHmhC8yuqZraPCGdM/gviz/tq?tqx=out:csv&gid=391523453';
+  'https://docs.google.com/spreadsheets/d/1mxP2-lY1-fhWoHr_LOBLFw4OXnEHmhC8yuqZraPCGdM/gviz/tq?tqx=out:csv&gid=0';
 export const SUBMIT_FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSecytwjFuGMaSWyyzpgxYQOCyYYVcOgmP_1-E0CmfXWss3YKw/viewform';
 

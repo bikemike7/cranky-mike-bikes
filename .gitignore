@@ -11,7 +11,7 @@ dist
 dist-ssr
 *.local
 
-# Environment (keep secrets out of git; copy .env.example to .env)
+# Environment (keep secrets out of git)
 .env
 
 # Editor directories and files

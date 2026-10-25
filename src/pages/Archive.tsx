@@ -1,10 +1,24 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import { ArrowLeft, Loader2 } from 'lucide-react';
-import { usePublicEvents } from '@/hooks/useEvents';
-import EventCard from '@/components/EventCard';
+import { fetchSheetEvents } from '@/lib/sheetEvents';
+import SheetEventCard from '@/components/SheetEventCard';
 
 const Archive = () => {
-  const { data: events, isLoading } = usePublicEvents({ past: true });
+  const { data: allEvents = [], isLoading, error } = useQuery({
+    queryKey: ['sheet-events'],
+    queryFn: fetchSheetEvents,
+    staleTime: 60_000,
+  });
+
+  // Most recent past events first
+  const events = useMemo(
+    () => allEvents
+      .filter((e) => e.timing === 'Past')
+      .sort((a, b) => (b.dateValue?.getTime() ?? 0) - (a.dateValue?.getTime() ?? 0)),
+    [allEvents],
+  );
 
   return (
     <div className="container mx-auto px-4 py-6">
@@ -29,15 +43,22 @@ const Archive = () => {
         </div>
       )}
 
-      {!isLoading && events && events.length > 0 && (
+      {error && (
+        <div className="text-center py-16 border border-foreground p-6">
+          <p className="font-heading text-2xl">SOMETHING BROKE</p>
+          <p className="text-sm text-muted-foreground mt-2">Couldn't load events. Try refreshing.</p>
+        </div>
+      )}
+
+      {!isLoading && !error && events.length > 0 && (
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {events.map((event) => (
-            <EventCard key={event.id} event={event} />
+          {events.map((e, i) => (
+            <SheetEventCard key={e.uid || i} event={e} />
           ))}
         </div>
       )}
 
-      {!isLoading && events && events.length === 0 && (
+      {!isLoading && !error && events.length === 0 && (
         <div className="text-center py-16 border border-dashed border-border">
           <p className="font-heading text-3xl text-muted-foreground">NO PAST EVENTS YET</p>
           <p className="text-sm text-muted-foreground mt-2">

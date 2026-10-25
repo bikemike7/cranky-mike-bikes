@@ -162,25 +162,23 @@ The system should be designed to support future features such as:
 * Historical event archive
 * Multi-city support
 
-This project was built with [Lovable](https://lovable.dev).
+## How it works
 
-**Live app**: https://spoke-n-word.lovable.app
+* **Events** come from the first tab of the [events Google Sheet](https://docs.google.com/spreadsheets/d/1mxP2-lY1-fhWoHr_LOBLFw4OXnEHmhC8yuqZraPCGdM/edit?gid=0#gid=0). Add, edit or delete a row there and the site picks it up on the next page load.
+* **Submissions** go through the Google Form linked from the SUBMIT button.
+* **Hosting** is GitHub Pages. Every push to `main` builds and publishes the site automatically (see `.github/workflows/deploy.yml`).
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/631e55c1-d8e7-439a-b08d-de8cd3c317bf).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+There is no database or server — the site is plain static files plus the Google Sheet.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need Node.js (LTS).
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+git clone https://github.com/bikemike7/cranky-mike-bikes
+cd cranky-mike-bikes
+npm install
 npm run dev
 ```
+
+Then open http://localhost:8080.
