@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * SEATTLE BIKE EVENTS — Design System
+ * Bike punk / DIY / zine aesthetic
+ * Strict palette: dark purple #32006e, black, white, aggressive typography
+ */
+
+@layer base {
+  :root {
+    /* Core palette — dark mode only */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 268 100% 22% / 0.25;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 268 100% 22%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 268 100% 22%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 0%;
+    --muted-foreground: 0 0% 100% / 0.7;
+
+    --accent: 268 100% 22%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 0% 100%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 268 100% 22%;
+    --input: 268 100% 22%;
+    --ring: 0 0% 100%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 268 100% 22%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 268 100% 22%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 268 100% 22%;
+    --sidebar-ring: 0 0% 100%;
+
+    /* Tag colors */
+    --tag-race: 268 100% 22%;
+    --tag-alleycat: 268 100% 22%;
+    --tag-group-ride: 268 100% 22%;
+    --tag-show: 268 100% 22%;
+    --tag-protest: 268 100% 22%;
+    --tag-party: 268 100% 22%;
+    --tag-wtf: 268 100% 22%;
+    --tag-abc: 268 100% 22%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .font-body {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'Space Mono', monospace;
+  }
+}
