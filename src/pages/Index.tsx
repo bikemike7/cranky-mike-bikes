@@ -51,10 +51,10 @@ const Index = () => {
       <div className="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
           <h1 className="font-heading text-5xl md:text-7xl leading-none">
-            WHAT'S <span className="bg-primary px-2">ROLLING</span>
+            SPOKE-N-<span className="bg-primary px-2">WORD</span>
           </h1>
           <p className="font-mono text-xs text-muted-foreground mt-2 uppercase tracking-widest">
-            Seattle bike events — races, rides, chaos
+            PNW bike rides, events, culture, &amp; chaos
           </p>
         </div>
         <a href={SUBMIT_FORM_URL} target="_blank" rel="noopener noreferrer"

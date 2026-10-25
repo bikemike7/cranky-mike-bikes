@@ -1,23 +1,25 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { SUBMIT_FORM_URL } from '@/lib/sheetEvents';
 
 const NAV_LINKS = [
-  { to: '/', label: 'EVENTS' },
-  { to: '/archive', label: 'ARCHIVE' },
+  { to: '/', label: 'RIDES' },
+  { to: '/repair-studio', label: "CRANKY MIKE'S REPAIR STUDIO" },
 ];
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  // Rides is active only on "/", other sections stay active on their sub-pages
+  const isActive = (to: string) =>
+    to === '/' ? location.pathname === '/' : location.pathname.startsWith(to);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto px-4">
         <div className="flex h-14 items-center justify-between">
           <Link to="/" className="font-heading text-2xl tracking-wider text-foreground">
-            SEATTLE BIKE EVENTS
+            CRANKY RIDES
           </Link>
 
           {/* Desktop nav */}
@@ -27,13 +29,12 @@ const Header = () => {
                 key={link.to}
                 to={link.to}
                 className={`font-heading text-lg tracking-wide transition-colors hover:underline ${
-                  location.pathname === link.to ? 'text-foreground underline decoration-primary decoration-4' : 'text-foreground'
+                  isActive(link.to) ? 'text-foreground underline decoration-primary decoration-4' : 'text-foreground'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <a href={SUBMIT_FORM_URL} target="_blank" rel="noopener noreferrer" className="font-heading text-lg tracking-wide bg-primary text-primary-foreground px-3 hover:bg-foreground hover:text-background transition-colors">SUBMIT</a>
           </nav>
 
           {/* Mobile menu button */}
@@ -55,13 +56,12 @@ const Header = () => {
                 to={link.to}
                 onClick={() => setMenuOpen(false)}
                 className={`font-heading text-2xl tracking-wide py-2 transition-colors hover:underline ${
-                  location.pathname === link.to ? 'text-foreground underline decoration-primary decoration-4' : 'text-foreground'
+                  isActive(link.to) ? 'text-foreground underline decoration-primary decoration-4' : 'text-foreground'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <a href={SUBMIT_FORM_URL} target="_blank" rel="noopener noreferrer" className="font-heading text-2xl tracking-wide py-2">SUBMIT</a>
           </nav>
         )}
       </div>
