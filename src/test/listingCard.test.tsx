@@ -30,9 +30,11 @@ describe('ListingCard', () => {
     expect(screen.getAllByRole('button', { name: /show photo/i })).toHaveLength(2);
   });
 
-  it('links to the contact page while no phone number is set', () => {
+  it('opens a pre-filled text about the item', () => {
     renderCard(item);
-    expect(screen.getByRole('link', { name: 'ASK ABOUT THIS' })).toHaveAttribute('href', '/repair-studio/contact');
+    const href = screen.getByRole('link', { name: 'TEXT ABOUT THIS' }).getAttribute('href') ?? '';
+    expect(href).toMatch(/^sms:\d+\?&body=/);
+    expect(decodeURIComponent(href)).toContain('Test Bike ($100)');
   });
 
   it('marks sold items and hides the inquiry button', () => {

@@ -23,7 +23,7 @@ const Index = () => {
   const [timing, setTiming] = useState<TimingFilter>('All');
   const [tag, setTag] = useState<string>('');
   const [search, setSearch] = useState('');
-  const [sort, setSort] = useState<SortKey>('date-asc');
+  const [sort, setSort] = useState<SortKey>('date-desc');
 
   const allTags = useMemo(
     () => Array.from(new Set(events.flatMap((e) => e.tags))).sort(),
@@ -79,8 +79,8 @@ const Index = () => {
           </select>
           <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)}
             className="bg-background border border-border px-3 py-2 font-mono text-sm" aria-label="Sort">
-            <option value="date-asc">Date: soonest first</option>
             <option value="date-desc">Date: latest first</option>
+            <option value="date-asc">Date: soonest first</option>
             <option value="name">Name A–Z</option>
             <option value="submitted">Recently submitted</option>
           </select>

@@ -5,7 +5,7 @@
  * While this is empty, the site hides every "text Mike" button on the live
  * site (and shows a dashed reminder box when running locally).
  */
-export const STUDIO_PHONE: string = '';
+export const STUDIO_PHONE: string = '502-373-1841';
 
 export const STUDIO_AREA = 'Wallingford, Seattle';
 
