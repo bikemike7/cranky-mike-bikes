@@ -33,7 +33,17 @@ export const CtaLink = ({ to, children, primary }: { to: string; children: React
   </Link>
 );
 
-export const BulletList = ({ items }: { items: ReactNode[] }) => (
+/** A photo from public/studio/. */
+export const StudioPhoto = ({ file, alt, className = '' }: { file: string; alt: string; className?: string }) => (
+  <img
+    src={`${import.meta.env.BASE_URL}studio/${file}`}
+    alt={alt}
+    loading="lazy"
+    className={`w-full object-cover border border-border bg-muted ${className}`}
+  />
+);
+
+export const BulletList =({ items }: { items: ReactNode[] }) => (
   <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
     {items.map((item, i) => (
       <li key={i} className="flex gap-2">

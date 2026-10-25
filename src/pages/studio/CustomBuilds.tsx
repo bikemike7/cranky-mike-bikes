@@ -1,4 +1,4 @@
-import { BulletList, CtaLink, PageTitle, Section, Steps } from '@/components/studio/StudioUI';
+import { BulletList, CtaLink, PageTitle, Section, Steps, StudioPhoto } from '@/components/studio/StudioUI';
 
 const GETTING_TO_KNOW_YOU = [
   "How you'll actually use the bike",
@@ -45,6 +45,19 @@ const CustomBuilds = () => (
         The goal is simple: find the easiest path to you falling in love with your new bike.
       </p>
     </Section>
+
+    <div className="grid gap-3 sm:grid-cols-2 mb-4">
+      <StudioPhoto
+        file="colnago-road-bike.jpg"
+        alt="Silver vintage Colnago road bike with black drop bars leaning against a garage door"
+        className="aspect-[4/3]"
+      />
+      <StudioPhoto
+        file="bridgestone-road-bike.jpg"
+        alt="Gray Bridgestone road bike with deep black wheels locked to a city bike rack"
+        className="aspect-[4/3]"
+      />
+    </div>
 
     <Section title="IT STARTS WITH YOU">
       <BulletList items={GETTING_TO_KNOW_YOU} />
